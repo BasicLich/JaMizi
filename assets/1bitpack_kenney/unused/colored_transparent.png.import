@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monochrome_transparent_packed.png-988d894bbcb6bcfb031f64194f9de5a5.stex"
+path="res://.import/colored_transparent.png-0cfbc1fef6446657c97313caccb273bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/1bitpack_kenney/monochrome_transparent_packed.png"
-dest_files=[ "res://.import/monochrome_transparent_packed.png-988d894bbcb6bcfb031f64194f9de5a5.stex" ]
+source_file="res://assets/1bitpack_kenney/unused/colored_transparent.png"
+dest_files=[ "res://.import/colored_transparent.png-0cfbc1fef6446657c97313caccb273bb.stex" ]
 
 [params]
 

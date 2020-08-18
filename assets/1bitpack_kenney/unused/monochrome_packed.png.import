@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monochrome_transparent.png-da3319a347f38f149102629be8e064fa.stex"
+path="res://.import/monochrome_packed.png-80f69faa13c2dfe222964b9f1453e475.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/1bitpack_kenney/monochrome_transparent.png"
-dest_files=[ "res://.import/monochrome_transparent.png-da3319a347f38f149102629be8e064fa.stex" ]
+source_file="res://assets/1bitpack_kenney/unused/monochrome_packed.png"
+dest_files=[ "res://.import/monochrome_packed.png-80f69faa13c2dfe222964b9f1453e475.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

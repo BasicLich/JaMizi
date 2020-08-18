@@ -16,8 +16,18 @@ _global_script_class_icons={
 [application]
 
 config/name="Ja Mizi"
+run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=256
+window/size/height=144
+window/size/test_width=1024
+window/size/test_height=576
+window/stretch/mode="viewport"
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

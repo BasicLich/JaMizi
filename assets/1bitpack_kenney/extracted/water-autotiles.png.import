@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/colored_transparent_packed.png-ef4dfbfa2bb48ecbf03891aa64fc9002.stex"
+path="res://.import/water-autotiles.png-200c85e9f13b9374a66c68591767d69d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/1bitpack_kenney/colored_transparent_packed.png"
-dest_files=[ "res://.import/colored_transparent_packed.png-ef4dfbfa2bb48ecbf03891aa64fc9002.stex" ]
+source_file="res://assets/1bitpack_kenney/extracted/water-autotiles.png"
+dest_files=[ "res://.import/water-autotiles.png-200c85e9f13b9374a66c68591767d69d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
