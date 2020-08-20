@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/UFO.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Item.tscn" type="PackedScene" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "down"
 length = 0.5
 step = 0.05
@@ -20,8 +20,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 16 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "left"
+[sub_resource type="Animation" id=2]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -86,8 +85,8 @@ collision_layer = 1
 collision_mask = 2147483649
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pivot"]
-anims/down = SubResource( 2 )
-anims/left = SubResource( 1 )
+anims/down = SubResource( 1 )
+anims/left = SubResource( 2 )
 anims/right = SubResource( 3 )
 anims/up = SubResource( 4 )
 [connection signal="animation_changed" from="pivot/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_changed"]
