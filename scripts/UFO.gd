@@ -60,7 +60,7 @@ func grab():
 			print("grabbed a thing")
 			grabbing = true
 			return
-	print("grabbed nothing")	
+	print("grabbed nothing")
 
 func release():
 	if grabbing:

@@ -1,34 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/1bitpack_kenney/monochrome_transparent_packed.png" type="Texture" id=1]
+[ext_resource path="res://tilesets/bricks.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/CraftBox.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Items.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
-
-[sub_resource type="TileSet" id=1]
-0/name = "monochrome_transparent_packed.png 0"
-0/texture = ExtResource( 1 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 288, 0, 64, 80 )
-0/tile_mode = 2
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 16, 16 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
 
 [node name="CraftBox" type="Node2D"]
 script = ExtResource( 2 )
@@ -47,7 +24,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C00"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="C01" type="Area2D" parent="cells"]
 position = Vector2( 24, 8 )
@@ -58,7 +35,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C01"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="C02" type="Area2D" parent="cells"]
 position = Vector2( 40, 8 )
@@ -69,7 +46,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C02"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="C10" type="Area2D" parent="cells"]
 position = Vector2( 8, 24 )
@@ -80,7 +57,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C10"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="C11" type="Area2D" parent="cells"]
 position = Vector2( 24, 24 )
@@ -91,7 +68,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C11"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="C12" type="Area2D" parent="cells"]
 position = Vector2( 40, 24 )
@@ -102,7 +79,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C12"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="C20" type="Area2D" parent="cells"]
 position = Vector2( 8, 40 )
@@ -113,7 +90,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C20"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="C21" type="Area2D" parent="cells"]
 position = Vector2( 24, 40 )
@@ -124,7 +101,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C21"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="C22" type="Area2D" parent="cells"]
 position = Vector2( 40, 40 )
@@ -135,14 +112,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cells/C22"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color( 0.67451, 0.584314, 0.0823529, 1 )
-tile_set = SubResource( 1 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -1, 0, 196608, -65536, 0, 131073, -65535, 0, 131073, -65534, 0, 131073, -65533, 0, 196609, 65535, 0, 65538, 3, 0, 65536, 131071, 0, 65538, 65539, 0, 65536, 196607, 0, 65538, 131075, 0, 65536, 262143, 0, 262144, 196608, 0, 1, 196609, 0, 1, 196610, 0, 1, 196611, 0, 262145 )
 
 [node name="items" parent="." instance=ExtResource( 3 )]
-position = Vector2( -8, -8 )

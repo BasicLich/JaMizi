@@ -44,8 +44,8 @@ func craft():
 			else:
 				item_ids.push_back(l[0].get_parent().tile_id())
 				items.push_back(l[0].get_parent())
-	print(item_ids)
-	print(items)
+	# print(item_ids)
+	# print(items)
 	if recipes.has(item_ids):
 		var item_name = recipes[item_ids]
 		# 1 - delete items on top of the box
@@ -55,8 +55,8 @@ func craft():
 		# 2 - create a node in the center of the box
 		var item = $items.create(item_name)
 		item.position = $cells/C11.position
-		print(item.collision_layer)
-		print(item.collision_mask)
+		item.collision_layer = 3
+		item.collision_mask = 3
 		self.add_child(item)
 		print("you made a %s" % item_name)
 
@@ -89,7 +89,7 @@ const recipes = {
 	[0,0,0, 0,1,0, 0,1015,0]: "bricks",
 	[0,0,0, 0,1034,0, 0,1015,0]: "iron",
 	[0,0,0, 0,6,0, 0,1015,0]: "bottle",
-	#TODO [0,0,0, 0,1034,0, 0,1015,0]: "furnace",
+	[0,0,0, 0,4,0, 4,1014,4]: "furnace",
 # iron stuff
 	[3,0,3, 3,0,3, 3,3,3]: "cauldron",
 	[0,0,0, 3,0,3, 0,3,0]: "bucket",
@@ -124,7 +124,7 @@ const recipes = {
 ## misc
 	[0,232,1219, 232,1219,232, 1219,232,0]: "wooden shield",
 	[0,0,1411, 0,1411,232, 1411,232,0]: "bow",
-	[0,0,234, 0,232,0, 1034,0,0]: "arrow",
+	[0,0,1034, 0,232,0, 234,0,0]: "arrow",
 	[0,0,232, 0,232,0, 232,0,0]: "stave",
 	[0,0,0, 0,1033,0, 432,0,0]: "scepter",
 # buildings
@@ -132,18 +132,13 @@ const recipes = {
 	[0,1306,0, 1306,1306,1306, 1306,303,1306]: "house",
 	[1306,0,1306, 1306,1306,1306, 1306,303,1306]: "tower",
 	[0,0,0, 1306,1306,1306, 1306,1306,1306]: "wall",
-	[0,0,0, 0,0,0, 1902,1907,1902]: "castle",
+	[1902,1907,1902, 1907,0,1907, 1902,1907,1902]: "castle",
 # misc
 	[0,0,0, 1032,1033,1032, 1032,1032,1032]: "crown",
 	[0,1033,0, 1032,0,1032, 0,1032,0]: "ruby ring",
-	#TODO: UFO?
+	[0,3,0, 3,1906,3, 0,3,0]: "UFO",
+#	"room": 1908
+#	"house": 1901
+#	"tower": 1902
+#	"castle": 1906
 }
-#	"dirt": [1, 0, "553300"],
-#	"coal": [2, 0, "1b1b1b"],
-#	"stone": [3, 0, "7b7b7b"],
-#	"torch": [43, 3, "e81919"],
-#	"fence": [1, 3, "ca9c60"],
-#	"wooden stick": [32, 2, "ca9c60"],
-#	"door": [3, 3, "ca9c60"],
-#	"planks": [19, 12, "ca9c60"],
-#	"ladder": [0, 6, "ca9c60"],

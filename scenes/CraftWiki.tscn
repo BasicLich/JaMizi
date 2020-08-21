@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/CraftWiki.gd" type="Script" id=1]
+[ext_resource path="res://scenes/CraftBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Item.tscn" type="PackedScene" id=3]
 
 [node name="CraftWiki" type="Control"]
 anchor_right = 1.0
@@ -31,5 +33,17 @@ custom_constants/separation = 0
 
 [node name="recipe" type="CenterContainer" parent="root"]
 margin_left = 16.0
-margin_right = 256.0
+margin_right = 240.0
 margin_bottom = 144.0
+
+[node name="from" parent="root/recipe" instance=ExtResource( 2 )]
+position = Vector2( 48, 48 )
+
+[node name="arrow" parent="root/recipe" instance=ExtResource( 3 )]
+position = Vector2( 120, 72 )
+tile_x = 29
+tile_y = 20
+color = Color( 0.67451, 0.584314, 0.0823529, 1 )
+
+[node name="to" parent="root/recipe" instance=ExtResource( 2 )]
+position = Vector2( 144, 48 )

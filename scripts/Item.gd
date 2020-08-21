@@ -24,7 +24,8 @@ func set_collision_mask(mask):
 
 func set_color(c):
 	color = c
-	$Sprite.modulate = c
+	if ready:
+		$Sprite.modulate = c
 
 func update_region_rect():
 	if ready:
@@ -43,6 +44,7 @@ func _ready():
 	update_region_rect()
 	set_collision_layer(collision_layer)
 	set_collision_mask(collision_mask)
+	set_color(color)
 
 func _process(delta):
 	pass

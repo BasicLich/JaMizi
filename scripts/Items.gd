@@ -12,16 +12,37 @@ func create(item_name):
 		if colors.has(color):
 			color = colors[color]
 		item.color = color
-		item.collision_mask = 3
-		item.collision_layer = 3
+		item.collision_mask = 0
+		item.collision_layer = 0
 		return item
 	return null
+
+func from_id(id):
+	for item_name in items:
+		var params = items[item_name]
+		if id == params[0] + params[1] * 100:
+			return item_name
+	return null
+
+func clear():
+	for item in get_children():
+		remove_child(item)
+		item.queue_free()
+
+func load_items(level):
+	for item_name in level:
+		for pos in level[item_name]:
+			var item = create(item_name)
+			item.collision_mask = 3
+			item.collision_layer = 3
+			item.position.x = pos[0] * 16 + 8
+			item.position.y = pos[1] * 16 + 8
+			add_child(item)
 
 func _ready():
 	pass
 
 const colors = {
-# repeating
 	"croko": "309030",
 	"stone": "706965",
 	"wood": "ca9c60",
@@ -30,14 +51,6 @@ const colors = {
 	"brick": "ef6f00",
 	"tree": "306030",
 	"white": "ffffff",
-# unique
-#	"chicken": "e0e0e0",
-#	"spider": "303030",
-#	"fish": "7070b0",
-#	"dirt": "553300",
-#	"coal": "1b1b1b",
-#	"sand": "d0d0a0",
-#	"bottle": "e0e0e0",
 	"gold": "ac9515",
 	"ruby": "ac1515",
 }
@@ -131,8 +144,6 @@ const items = {
 			[15, 13, "iron"],
 	"rails":
 			[ 3,  5, "iron"],
-	"mine":
-			[ 5, 17, "iron"],
 	"bucket":
 			[47, 3, "iron"],
 # armor
@@ -166,12 +177,6 @@ const items = {
 			[41,  8, "wood"],
 	"wooden pickaxe":
 			[43,  5, "wood"],
-#	"wooden scythe":
-#			[44,  5, "wood"],
-#	"wooden shovel":
-#			[42,  5, "wood"],
-#	"wooden hoe":
-#			[44,  5, "wood"],
 ## stone
 	"stone sword":
 			[34,  8, "stone"],
@@ -179,12 +184,6 @@ const items = {
 			[41,  7, "stone"],
 	"stone pickaxe":
 			[43,  5, "stone"],
-#	"stone scythe":
-#			[35,  2, "stone"],
-#	"stone shovel":
-#			[42,  5, "stone"],
-#	"stone hoe":
-#			[44,  5, "stone"],
 ## iron
 	"iron sword":
 			[32,  8, "iron"],
@@ -192,12 +191,6 @@ const items = {
 			[40,  7, "iron"],
 	"iron pickaxe":
 			[43,  5, "iron"],
-#	"iron scythe":
-#			[36,  2, "iron"],
-#	"iron shovel":
-#			[42,  5, "iron"],
-#	"iron hoe":
-#			[44,  5, "iron"],
 ## misc
 	"wooden shield":
 			[39,  2, "wood"],
