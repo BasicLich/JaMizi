@@ -10,6 +10,8 @@ var craftbox_scene = load("res://scenes/CraftBox.tscn")
 onready var items = items_scene.instance()
 onready var craftbox = craftbox_scene.instance()
 
+signal close
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for recipe in craftbox.recipes:
@@ -24,7 +26,7 @@ func add_recipe(recipe, result):
 	button.connect("pressed", self, "button_clicked", [button, recipe, result])
 	$root/items/item_list.add_child(button)
 
-func button_clicked(target, recipe, result):
+func button_clicked(_target, recipe, result):
 	for node in $root/recipe/from/items.get_children():
 		$root/recipe/from/items.remove_child(node)
 	for node in $root/recipe/to/items.get_children():
@@ -35,12 +37,15 @@ func button_clicked(target, recipe, result):
 			var item_name = items.from_id(item_id)
 			var item = items.create(item_name)
 			item.position = $root/recipe/from/cells.get_child(i).position
+			item.collision_layer = 0
 			$root/recipe/from/items.add_child(item)
 	var item = items.create(result)
 	item.position = $root/recipe/to/cells/C11.position
+	item.collision_layer = 0
 	$root/recipe/to/items.add_child(item)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	if Input.is_action_just_released("ui_c"):
+		emit_signal("close")
+	if Input.is_action_just_released("ui_cancel"):
+		emit_signal("close")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Despawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/CraftBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Spawner.tscn" type="PackedScene" id=3]
+
+[node name="level" type="Node2D"]
+
+[node name="boxes" type="Node2D" parent="."]
+
+[node name="CraftBox" parent="boxes" instance=ExtResource( 2 )]
+position = Vector2( 96, 48 )
+
+[node name="spawns" type="Node2D" parent="."]
+
+[node name="Spawner" parent="spawns" instance=ExtResource( 3 )]
+position = Vector2( 56, 72 )
+
+[node name="exits" type="Node2D" parent="."]
+
+[node name="Despawner" parent="exits" instance=ExtResource( 1 )]
+position = Vector2( 184, 72 )
+item_name = "door"

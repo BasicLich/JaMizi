@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/1bitpack_kenney/monochrome_transparent.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Accept.gd" type="Script" id=2]
+[ext_resource path="res://assets/Silkscreen/silkscreen.tres" type="DynamicFont" id=3]
+
+[node name="Notes" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="difficulty" type="Label" parent="CenterContainer"]
+margin_left = 12.0
+margin_top = 23.0
+margin_right = 227.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 3 )
+text = "some levels here are 
+way harder than
+ others, so feel free
+to skip levels
+(arrow top-right)"
+align = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -16.0
+
+[node name="Sprite" type="Sprite" parent="CenterContainer2"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 493, 255, 16, 16 )

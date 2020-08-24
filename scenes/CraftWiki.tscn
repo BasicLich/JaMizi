@@ -37,13 +37,15 @@ margin_right = 240.0
 margin_bottom = 144.0
 
 [node name="from" parent="root/recipe" instance=ExtResource( 2 )]
-position = Vector2( 48, 48 )
+position = Vector2( 32, 48 )
 
 [node name="arrow" parent="root/recipe" instance=ExtResource( 3 )]
-position = Vector2( 120, 72 )
+position = Vector2( 104, 72 )
 tile_x = 29
 tile_y = 20
 color = Color( 0.67451, 0.584314, 0.0823529, 1 )
+collision_layer = 0
+collision_mask = 2147483648
 
 [node name="to" parent="root/recipe" instance=ExtResource( 2 )]
-position = Vector2( 144, 48 )
+position = Vector2( 128, 48 )

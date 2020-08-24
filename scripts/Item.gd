@@ -8,6 +8,8 @@ export (int) var tile_y setget set_tile_y
 export (Color, RGBA) var color setget set_color
 export (int, LAYERS_2D_PHYSICS) var collision_layer = 3 setget set_collision_layer
 export (int, LAYERS_2D_PHYSICS) var collision_mask = 3 setget set_collision_mask
+var item_name = ""
+var taken = false
 
 func tile_id():
 	return tile_x + tile_y * 100
@@ -46,5 +48,5 @@ func _ready():
 	set_collision_mask(collision_mask)
 	set_color(color)
 
-func _process(delta):
+func _process(_delta):
 	pass

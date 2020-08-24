@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Silkscreen/silkscreen.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/1bitpack_kenney/monochrome_transparent.png" type="Texture" id=2]
+[ext_resource path="res://shaders/Outline.shader" type="Shader" id=3]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://tilesets/bricks.tres" type="TileSet" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/stroke = 1.0
+shader_param/outline_color = Color( 0.5, 0.5, 0.5, 1 )
+
+[sub_resource type="TileSet" id=2]
+1/name = "monochrome_transparent.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 595, 289, 220, 50 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 16, 16 )
+1/autotile/spacing = 1
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="c" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="v" type="VBoxContainer" parent="c"]
+margin_left = 52.0
+margin_top = 12.0
+margin_right = 187.0
+margin_bottom = 131.0
+
+[node name="name" type="Control" parent="c/v"]
+visible = false
+margin_right = 135.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+
+[node name="name" type="Node2D" parent="c/v/name"]
+
+[node name="TileMap" type="TileMap" parent="c/v/name/name"]
+material = SubResource( 1 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 11, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 65548, 1, 1, 131073, 2, 1, 131078, 3, 1, 65543, 4, 1, 65540, 5, 1, 131076, 6, 1, 131077, 7, 1, 65543, 8, 1, 65544, 9, 1, 131074, 11, 1, 131077, 65538, 1, 65541, 65539, 1, 65536, 65540, 1, 65538, 65541, 1, 131078, 65542, 1, 131073, 65543, 1, 131076, 65544, 1, 131083 )
+
+[node name="TileMap2" type="TileMap" parent="c/v/name/name"]
+material = SubResource( 1 )
+position = Vector2( 0, -6 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 11, 16 )
+format = 1
+tile_data = PoolIntArray( 10, 1, 11 )
+
+[node name="HSeparator2" type="HSeparator" parent="c/v"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 135.0
+margin_bottom = 5.0
+custom_constants/separation = 5
+
+[node name="Label" type="Label" parent="c/v"]
+margin_top = 9.0
+margin_right = 135.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 1 )
+text = "Mothership's
+    factory"
+
+[node name="TileMap" type="TileMap" parent="c/v/Label"]
+modulate = Color( 0.67451, 0.584314, 0.0823529, 1 )
+position = Vector2( -2, -8 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1, 0, 196608, -65536, 0, 131073, -65535, 0, 131073, -65534, 0, 131073, -65533, 0, 131073, -65532, 0, 131073, -65531, 0, 131073, -65530, 0, 131073, -65529, 0, 131073, -65528, 0, 196609, 65535, 0, 65538, 8, 0, 65536, 131071, 0, 65538, 65544, 0, 65536, 131072, 0, 1, 131073, 0, 2, 131079, 0, 0, 131080, 0, 262145, 196609, 0, 262144, 196610, 0, 1, 196611, 0, 1, 196612, 0, 1, 196613, 0, 1, 196614, 0, 1, 196615, 0, 262145 )
+
+[node name="HSeparator" type="HSeparator" parent="c/v"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 50.0
+margin_right = 135.0
+margin_bottom = 65.0
+custom_constants/separation = 15
+
+[node name="new_game" type="Button" parent="c/v"]
+margin_top = 69.0
+margin_right = 135.0
+margin_bottom = 92.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "new game"
+flat = true
+
+[node name="levels" type="Button" parent="c/v"]
+margin_top = 96.0
+margin_right = 135.0
+margin_bottom = 119.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "select level"
+flat = true

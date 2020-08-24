@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tilesets/bricks.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/CraftBox.gd" type="Script" id=2]
@@ -7,8 +7,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 24 )
+
 [node name="CraftBox" type="Node2D"]
 script = ExtResource( 2 )
+collision_layer = 0
 
 [node name="cells" type="Node2D" parent="."]
 __meta__ = {
@@ -17,7 +21,7 @@ __meta__ = {
 
 [node name="C00" type="Area2D" parent="cells"]
 position = Vector2( 8, 8 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -28,7 +32,7 @@ shape = SubResource( 1 )
 
 [node name="C01" type="Area2D" parent="cells"]
 position = Vector2( 24, 8 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -39,7 +43,7 @@ shape = SubResource( 1 )
 
 [node name="C02" type="Area2D" parent="cells"]
 position = Vector2( 40, 8 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -50,7 +54,7 @@ shape = SubResource( 1 )
 
 [node name="C10" type="Area2D" parent="cells"]
 position = Vector2( 8, 24 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -61,7 +65,7 @@ shape = SubResource( 1 )
 
 [node name="C11" type="Area2D" parent="cells"]
 position = Vector2( 24, 24 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -72,7 +76,7 @@ shape = SubResource( 1 )
 
 [node name="C12" type="Area2D" parent="cells"]
 position = Vector2( 40, 24 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -83,7 +87,7 @@ shape = SubResource( 1 )
 
 [node name="C20" type="Area2D" parent="cells"]
 position = Vector2( 8, 40 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -94,7 +98,7 @@ shape = SubResource( 1 )
 
 [node name="C21" type="Area2D" parent="cells"]
 position = Vector2( 24, 40 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -105,7 +109,7 @@ shape = SubResource( 1 )
 
 [node name="C22" type="Area2D" parent="cells"]
 position = Vector2( 40, 40 )
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
@@ -122,3 +126,11 @@ format = 1
 tile_data = PoolIntArray( -1, 0, 196608, -65536, 0, 131073, -65535, 0, 131073, -65534, 0, 131073, -65533, 0, 196609, 65535, 0, 65538, 3, 0, 65536, 131071, 0, 65538, 65539, 0, 65536, 196607, 0, 65538, 131075, 0, 65536, 262143, 0, 262144, 196608, 0, 1, 196609, 0, 1, 196610, 0, 1, 196611, 0, 262145 )
 
 [node name="items" parent="." instance=ExtResource( 3 )]
+
+[node name="cover" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cover"]
+position = Vector2( 24, 24 )
+shape = SubResource( 2 )

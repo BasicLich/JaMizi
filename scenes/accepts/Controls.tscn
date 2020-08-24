@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/1bitpack_kenney/monochrome_transparent.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Accept.gd" type="Script" id=2]
+[ext_resource path="res://assets/Silkscreen/silkscreen.tres" type="DynamicFont" id=3]
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 22.0
+margin_top = 21.0
+margin_right = 218.0
+margin_bottom = 122.0
+
+[node name="wasd" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 196.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+text = "WASD to move"
+align = 1
+
+[node name="space" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 21.0
+margin_right = 196.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 3 )
+text = "Space to grab/drop"
+align = 1
+
+[node name="c" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 196.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 3 )
+text = "C to see craft wiki"
+align = 1
+
+[node name="qe" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 63.0
+margin_right = 196.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 3 )
+text = "q/e to change speed"
+align = 1
+
+[node name="r" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 196.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 3 )
+text = "R to restart"
+align = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -16.0
+
+[node name="Sprite" type="Sprite" parent="CenterContainer2"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 493, 255, 16, 16 )

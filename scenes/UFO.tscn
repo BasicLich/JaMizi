@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/UFO.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Item.tscn" type="PackedScene" id=2]
@@ -54,6 +54,9 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+length = 0.1
+
+[sub_resource type="Animation" id=5]
 resource_name = "up"
 length = 0.5
 step = 0.05
@@ -70,24 +73,32 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -16 ) ]
 }
 
+[sub_resource type="Animation" id=6]
+length = 0.1
+
 [node name="UFO" type="Node2D"]
+z_index = 1
 script = ExtResource( 1 )
+animation_speed = 5.0
 
 [node name="pivot" type="Node2D" parent="."]
 
 [node name="bag" type="Node2D" parent="pivot"]
 
 [node name="sprite" parent="pivot" instance=ExtResource( 2 )]
+z_index = 1
 tile_x = 14
 tile_y = 20
 color = Color( 0.533333, 0.0156863, 0.737255, 1 )
-collision_layer = 1
-collision_mask = 2147483649
+collision_layer = 0
+collision_mask = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pivot"]
 anims/down = SubResource( 1 )
 anims/left = SubResource( 2 )
 anims/right = SubResource( 3 )
-anims/up = SubResource( 4 )
+anims/success = SubResource( 4 )
+anims/up = SubResource( 5 )
+anims/wait = SubResource( 6 )
 [connection signal="animation_changed" from="pivot/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_changed"]
 [connection signal="animation_finished" from="pivot/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

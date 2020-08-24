@@ -11,10 +11,12 @@ func create(item_name):
 		var color = params[2]
 		if colors.has(color):
 			color = colors[color]
+		item.item_name = item_name
 		item.color = color
 		item.collision_mask = 0
 		item.collision_layer = 0
 		return item
+	print('failed to load %s' % item_name)
 	return null
 
 func from_id(id):
@@ -39,6 +41,13 @@ func load_items(level):
 			item.position.y = pos[1] * 16 + 8
 			add_child(item)
 
+func get_item_name(item):
+	if item == null:
+		return null
+	var id = item.tile_x + item.tile_y * 100
+	var item_name = from_id(id)
+	return item_name
+
 func _ready():
 	pass
 
@@ -61,6 +70,10 @@ const items = {
 			[26,  7, "e0e0e0"],
 	"spider":
 			[28,  5, "303030"],
+	"rat":
+			[31,  8, "303030"],
+	"bat":
+			[26,  8, "303030"],
 	"croko":
 			[29,  8, "309030"],
 	"fish":
@@ -103,10 +116,12 @@ const items = {
 			[14, 20, "8804bc"],
 	"bone":
 			[32, 12, "white"],
+	"potion":
+			[33, 13, "ruby"],
 # wooden stuff
 	"fence":
 			[ 1,  3, "wood"],
-	"wooden stick":
+	"stick":
 			[32,  2, "wood"],
 	"door":
 			[ 3,  3, "wood"],

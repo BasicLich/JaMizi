@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Cursor.gd" type="Script" id=2]
+
+[node name="Cursor" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="pivot" type="Node2D" parent="."]
+
+[node name="sprite" parent="pivot" instance=ExtResource( 1 )]
+z_index = 2
+tile_x = 36
+tile_y = 12
+color = Color( 0.27451, 0.737255, 0.0156863, 1 )
+collision_layer = 0
+collision_mask = 1
+
+[node name="bag" type="Node2D" parent="pivot"]

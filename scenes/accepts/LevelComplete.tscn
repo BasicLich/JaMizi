@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Silkscreen/silkscreen.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/1bitpack_kenney/monochrome_transparent.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Accept.gd" type="Script" id=3]
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 120, 72 )
+scale = Vector2( 30.4, 3 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 140, 88, 10, 10 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="CenterContainer"]
+margin_left = 46.0
+margin_top = 63.0
+margin_right = 193.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 1 )
+text = "LEVEL complete"
+align = 1
